@@ -4,9 +4,17 @@ simple app to record and translate wasd movements into chat commands for noit.in
 
 build using `go build` (you need go toolchain)
 
+first time (token.txt would not exist) it would ask you to go to twitch url to auth yourself in terminal
+
+you should come back to localhost where your token will be grabbed and stored in token.txt
+
+**keep in mind that your USER TOKEN WILL BE STORED IN PLAIN TEXT IN TOKEN.TXT!!!**
+
 ensure twitch gets connected before doing anything
 
 resize window on top of the stream to allow for clicks to do accurate mouse position sets
+
+window should be transparent and red border must follow window resolution
 
 ## keybinds
 
@@ -28,6 +36,3 @@ minus key enables auto-send that is very scuffed and would send current recorded
 keys can be populated from key names available in keys.go
 
 change your username in config.json, leave redirect and client id as is if you are not making your own application
-
-keep in mind that your USER TOKEN WILL BE STORED IN PLAIN TEXT IN TOKEN.TXT!!!
-
