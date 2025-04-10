@@ -23,6 +23,8 @@ WASD and spacebar are used to record the movement sequence
 once you started pressing the key you must release it or change your inputs state/combination in order
 for the chat command to be rendered and have duration
 
+currently recorded combination would be live-displayed in top right
+
 send key sends sequence to twitch
 
 clear clears recorded sequence (to start a new one, inital delay before inputs ignored)
@@ -30,6 +32,8 @@ clear clears recorded sequence (to start a new one, inital delay before inputs i
 send+clear used to quickly chain-send recordings
 
 minus key enables auto-send that is very scuffed and would send current recorded inputs every 5 seconds
+
+q and esc reserved to quit the application
 
 ## config
 
