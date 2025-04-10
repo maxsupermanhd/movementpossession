@@ -1,0 +1,14 @@
+{
+	"keys": {
+		"copy": "z",
+		"clear": "c",
+		"send": "",
+		"sendAndClear": "enter"
+	},
+	"auth": {
+		"username": "flexcoral",
+		"client_id": "ec7dtyxn4hsnb40r7uc7y0v28vegcp",
+		"redirect_uri": "http://localhost:50291/"
+	},
+	"channelName": "necauqua"
+}
