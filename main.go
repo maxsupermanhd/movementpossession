@@ -30,6 +30,23 @@ func main() {
 	flag.Parse()
 	cfg, err := lac.FromFileJSON("config.json")
 
+	macros := map[int32]string{}
+	macroKeys, hasMacros := cfg.GetKeys("macros")
+	if hasMacros {
+		for _, v := range macroKeys {
+			kn, ok := keyDefs[v]
+			if !ok {
+				fmt.Println("unknown key for macro", v)
+				continue
+			}
+			m, ok := cfg.GetString("macros", v)
+			if !ok {
+				continue
+			}
+			macros[kn] = m
+		}
+	}
+
 	rl.SetConfigFlags(rl.FlagWindowResizable | rl.FlagWindowTopmost | rl.FlagWindowTransparent | rl.FlagWindowUndecorated)
 	rl.InitWindow(int32(windowWidth), int32(windowHeight), "movement possession")
 	rl.SetTargetFPS(int32(rl.GetMonitorRefreshRate(rl.GetCurrentMonitor())))
@@ -124,6 +141,12 @@ func main() {
 			rl.SetClipboardText(msg)
 			lastActionText = "copied"
 			lastActionTime = time.Now()
+		}
+
+		for mk, mv := range macros {
+			if rl.IsKeyPressed(mk) {
+				t.Say(cfg.GetDString("necauqua", "channelName"), mv)
+			}
 		}
 
 		latestState := states[len(states)-1]
